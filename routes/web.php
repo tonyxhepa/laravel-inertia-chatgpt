@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ChatDestroyController;
+use App\Http\Controllers\ChatGptDestroyController;
 use App\Http\Controllers\ChatGptIndexController;
 use App\Http\Controllers\ChatGptStoreController;
 use App\Http\Controllers\ProfileController;
@@ -29,6 +31,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/chat/{id?}', ChatGptIndexController::class)->name('chat.show');
     Route::post('/chat/{id?}', ChatGptStoreController::class)->name('chat.store');
+    Route::delete('/chat/{chat}', ChatGptDestroyController::class)->name('chat.destroy');
 });
 
 require __DIR__ . '/auth.php';
